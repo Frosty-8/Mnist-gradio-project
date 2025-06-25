@@ -130,7 +130,7 @@ Major dependencies:
 
 - Trained using TensorFlow/Keras on the classic MNIST dataset
 - Web UI powered by Gradio
-- Built by [Your Name](https://github.com/your-username)
+- Built by [Frsoty-8](https://github.com/Frosty-8)
 
 ---
 
