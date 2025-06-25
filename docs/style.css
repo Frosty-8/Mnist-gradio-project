@@ -1,0 +1,230 @@
+/* Reset + Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f9fc;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+header {
+  background-color: #006666;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.dark-mode header {
+  background-color: #003d3d;
+}
+
+header h1 {
+  font-size: 2.8rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #006666;
+  margin-bottom: 15px;
+}
+
+.dark-mode h2 {
+  color: #00cccc;
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+code {
+  background: #e8e8e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.dark-mode code {
+  background: #333;
+  color: #f0f0f0;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+}
+
+.dark-mode img {
+  filter: brightness(0.8);
+}
+
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-align: center;
+  font-weight: 500;
+}
+
+.dark-mode .card {
+  background: #1e1e1e;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.dark-mode footer {
+  color: #aaa;
+}
+
+footer a {
+  color: #006666;
+  text-decoration: none;
+}
+
+.dark-mode footer a {
+  color: #00cccc;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background: #006666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.dark-mode .dark-mode-toggle {
+  background: #00cccc;
+  color: #121212;
+}
+
+/* Additional styles for MNIST project */
+.model-stats {
+  background: #f0f8ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.dark-mode .model-stats {
+  background: #1a2a2a;
+}
+
+.accuracy-chart {
+  width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+/* Demo Button Styles */
+.demo-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #00a67c;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.demo-button:hover {
+  background-color: #008f6b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.demo-button:active {
+  transform: translateY(0);
+}
+
+.dark-mode .demo-button {
+  background-color: #00cc99;
+  color: #121212;
+}
+
+.dark-mode .demo-button:hover {
+  background-color: #00b386;
+}
+
+/* Secondary button style */
+.demo-button.secondary {
+  background-color: transparent;
+  border: 2px solid #00a67c;
+  color: #00a67c;
+  margin-bottom: 20px;
+}
+
+.dark-mode .demo-button.secondary {
+  border-color: #00cc99;
+  color: #00cc99;
+}
+
+.demo-button.secondary:hover {
+  background-color: rgba(0, 166, 124, 0.1);
+}
+
+.dark-mode .demo-button.secondary:hover {
+  background-color: rgba(0, 204, 153, 0.2);
+}
+
+/* Deployment options container */
+.deploy-options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MNIST Digit Recognition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button id="darkModeToggle" class="dark-mode-toggle">🌙 Dark Mode</button>
+  
+  <header>
+    <h1>🔢 MNIST Digit Recognition</h1>
+    <p>An interactive web application built with <strong>TensorFlow</strong> and <strong>Gradio</strong> that recognizes handwritten digits using a convolutional neural network (CNN).</p>
+  </header>
+
+  <main>
+    <section class="overview">
+      <h2>📌 Project Overview</h2>
+      <p>This application uses a trained CNN model to predict handwritten digits (0-9) with high accuracy. Key aspects include:</p>
+      <ul>
+        <li>Built with TensorFlow 2.19 and Keras</li>
+        <li>Uses the classic MNIST dataset (60,000 training images)</li>
+        <li>CNN architecture with 2 convolutional layers and dropout</li>
+        <li>Gradio interface for easy interaction</li>
+        <li>Model achieves ~99% validation accuracy</li>
+      </ul>
+    </section>
+
+    <section class="features">
+      <h2>🛠️ Technical Details</h2>
+      <div class="grid">
+        <div class="card">🧠 CNN Architecture (Conv2D, MaxPooling)</div>
+        <div class="card">📊 99.08% Validation Accuracy</div>
+        <div class="card">🖌️ Gradio Sketchpad Interface</div>
+        <div class="card">🔄 Data Augmentation (Inversion, Normalization)</div>
+        <div class="card">📈 Training Visualization (Accuracy/Loss)</div>
+        <div class="card">🐍 Python 3.12 + Modern Dependencies</div>
+      </div>
+    </section>
+
+    <section class="sql">
+      <h2>🧮 Model Architecture</h2>
+      <p>The neural network consists of the following layers:</p>
+      <ul>
+        <li><code>Conv2D(32, (3,3), activation='relu'</code></li>
+        <li><code>MaxPooling2D((2,2))</code></li>
+        <li><code>Conv2D(64, (3,3), activation='relu'</code></li>
+        <li><code>MaxPooling2D((2,2))</code></li>
+        <li><code>Flatten()</code></li>
+        <li><code>Dense(128, activation='relu')</code></li>
+        <li><code>Dropout(0.5)</code></li>
+        <li><code>Dense(10, activation='softmax')</code></li>
+      </ul>
+      <p>Total params: 225,034 (879 KB)</p>
+    </section>
+
+    <section class="preview">
+      <h2>🌐 Live UI Preview</h2>
+      <p>The Gradio interface provides a sketchpad where you can draw digits and get real-time predictions with confidence scores.</p>
+      <div class="card" style="text-align: left; padding: 20px;">
+        <h3 style="margin-bottom: 10px;">How it works:</h3>
+        <ol>
+          <li>Draw a digit (0-9) in the sketchpad</li>
+          <li>The model processes your input (resized to 28x28, inverted, normalized)</li>
+          <li>Predictions show top 3 probable digits with confidence percentages</li>
+        </ol>
+      </div>
+      <img src="screenshot.png" alt="Gradio UI Preview" style="max-width: 600px;"/>
+    </section>
+
+    <section class="install">
+      <h2>🚀 How to Run</h2>
+      <ol>
+        <li>Clone the project: <code>git clone https://github.com/Frosty-8/frosty-8-mnist-gradio-project.git</code></li>
+        <li>Install dependencies: <code>pip install -r requirements.txt</code> or <code>pip install gradio tensorflow numpy</code></li>
+        <li>Run the application: <code>python main.py</code></li>
+        <li>Open in browser: <code>http://localhost:8080</code></li>
+      </ol>
+      <div class="card" style="margin-top: 20px; text-align: left;">
+        <h3>Requirements:</h3>
+        <ul>
+          <li>Python ≥ 3.12</li>
+          <li>TensorFlow 2.19.0</li>
+          <li>Gradio ≥ 5.34.2</li>
+          <li>NumPy ≥ 2.1.0</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="deploy">
+      <h2>📦 Deployment Options</h2>
+      <p>
+        The application is configured for easy deployment with PORT environment variable support:
+      </p>
+      <div class="deploy-options">
+        <a href="https://mnist-gradio-project.onrender.com" class="demo-button secondary" target="_blank">🌐 Open Live Demo</a>
+        <ul>
+          <li>🔁 <a href="https://railway.app" target="_blank">Railway</a> (1-click Python deployment)</li>
+          <li>🔧 <a href="https://render.com" target="_blank">Render</a> (via Python Web Service)</li>
+          <li>🐳 <a href="https://www.docker.com" target="_blank">Docker</a> (containerized deployment)</li>
+          <li>☁️ <a href="https://huggingface.co/spaces" target="_blank">HuggingFace Spaces</a> (free Gradio hosting)</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with ❤️ by <strong>Sarthak Dongare</strong></p>
+    <p><a href="https://github.com/Frosty-8/Mnist-gradio-project" target="_blank">View Source Code on GitHub</a></p>
+  </footer>
+
+  <script>
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    
+    // Check for saved user preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      darkModeToggle.textContent = '☀️ Light Mode';
+    }
+    
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.textContent = '☀️ Light Mode';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.textContent = '🌙 Dark Mode';
+      }
+    });
+  </script>
+</body>
+</html>
